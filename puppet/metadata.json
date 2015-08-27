@@ -4,10 +4,10 @@
   "author": "UCX LLC",
   "license": "ISC",
   "summary": "UCX WAC meter module",
-  "source": "https://github.com/ucx/meter",
+  "source": "https://rtechts.git.cloudforge.com/meter.git",
   "dependencies": [],
-  "project_page": "https://github.com/ucx/meter",
-  "issues_url": "https://github.com/ucx/meter/issues",
+  "project_page": "https://rtechts.git.cloudforge.com/meter.git",
+  "issues_url": "https://rtechts.git.cloudforge.com/meter/issues",
   "operatingsystem_support": [
    	{ "operatingsystem": "Debian",  "operatingsystemrelease": [ "5", "6", "7", "8" ] },
 	{ "operatingsystem": "Ubuntu",  "operatingsystemrelease": [ "12.04", "12.10", "13.04", "13.10", "14.04", "14.10", "15.04" ] },
