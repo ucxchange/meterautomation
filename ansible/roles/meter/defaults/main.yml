@@ -1,8 +1,12 @@
 ---
-httpd_http_port: 80
-httpd_https_port: 443
-httpd_max_clients: 40
+package: true
+service: true
+enable: true
 
-modjk_version: 1.2.33
-modjk_connect_timeout: 10000
-modjk_ping_interval: 300
+ucx_meter_package_name: 'ucx_meter'
+ucx_meter_service_name: 'ucx_meter_service'
+ucx_meter_location:     '/Users/Andy/ucx_meter'
+ucx_meter_config_file:  'config.info'
+ucx_meter_user_name:    'root'
+ucx_meter_group_name:   'root'
+ucx_meter_infrastructure_name: 'new infra puppet 01'

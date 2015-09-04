@@ -1,5 +1,5 @@
 ---
 
-- name: restart httpd
+- name: restart meter
   sudo: true
-  service: name=httpd-{{ instance_name }} state=restarted
+  service: name=ucx-meter state=restarted
