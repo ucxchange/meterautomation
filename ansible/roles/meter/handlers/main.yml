@@ -1,0 +1,5 @@
+---
+
+- name: restart httpd
+  sudo: true
+  service: name=httpd-{{ instance_name }} state=restarted

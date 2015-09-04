@@ -1,0 +1,8 @@
+#
+# Inventory and variables to test NFS server and client roles.
+#
+
+[all:vars]
+
+[ucx_meters]
+ucx-meter-test-01	ansible_ssh_host=192.168.56.105

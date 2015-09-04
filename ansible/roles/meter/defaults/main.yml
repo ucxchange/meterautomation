@@ -1,0 +1,8 @@
+---
+httpd_http_port: 80
+httpd_https_port: 443
+httpd_max_clients: 40
+
+modjk_version: 1.2.33
+modjk_connect_timeout: 10000
+modjk_ping_interval: 300

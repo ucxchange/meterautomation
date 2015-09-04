@@ -1,0 +1,8 @@
+---
+
+dependencies:
+  - { role: "install_package", package: "modjk", version: "{{ modjk_version }}" }
+  - { role: "ipv4_binder/0", owner: "{{ instance_name }}", bind_address: "{{ httpd_bind_address }}",
+    listen_port: "{{ httpd_http_port }}" }
+  - { role: "ipv4_binder/0", owner: "{{ instance_name }}", bind_address: "{{ httpd_bind_address }}",
+    listen_port: "{{ httpd_https_port }}" }

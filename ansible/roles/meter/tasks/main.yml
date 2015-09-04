@@ -1,0 +1,60 @@
+---
+
+- name: Check for httpd directory
+  stat: path="{{ httpd_base_dir }}"
+  register: httpddir
+
+- name: Could not find httpd installed directories
+  fail: msg="Could not find httpd directories"
+  when: httpddir.stat.exists != True
+
+- name: Install ModJK
+  sudo: true
+  file: state=link src="{{ ansible_local.modjk[modjk_version].installed_dir }}/mod_jk.so" path="{{ httpd_modules_dir }}/mod_jk.so"
+  notify:
+    - restart httpd
+
+- name: Install httpd config
+  template: src={{ item.file }}.j2 dest={{ httpd_conf_dir }}/httpd-{{ instance_name }}.conf mode={{ item.mode }}
+  sudo: true
+  with_items:
+    - { file: 'conf/httpd.conf', mode: '0644' }
+  notify:
+    - restart httpd
+
+- name: Install workers.properties config
+  template: src={{ item.file }}.j2 dest={{ httpd_conf_dir }}/workers-{{ instance_name }}.properties mode={{ item.mode }}
+  sudo: true
+  with_items:
+    - { file: 'conf/workers.properties', mode: '0644' }
+  notify:
+    - restart httpd
+
+- name: Install SSL certificates
+  sudo: true
+  synchronize: >
+    src={{ instance_repo }}/{{ instance_name }}/ssl/ dest={{ httpd_conf_dir }}/ssl-{{ instance_name }}/ owner=no group=no
+  notify:
+    - restart httpd
+
+- name: Create html document root
+  sudo: true
+  file: state=directory path=/var/www/html-{{ instance_name }} mode=0775
+
+- name: Install httpd init script
+  sudo: true
+  template: src={{ item.file }}.j2 dest=/etc/init.d/httpd-{{ instance_name }} mode={{ item.mode }}
+  with_items:
+    - { file: 'axeda-httpd', mode: '0755' }
+  notify:
+    - restart httpd
+
+- name: Install binary link
+  sudo: true
+  file: state=link src=/usr/sbin/httpd path=/usr/sbin/httpd-{{ instance_name }}
+  notify:
+    - restart httpd
+
+- name: Enable httpd service at boot and start
+  sudo: true
+  service: name=httpd-{{ instance_name }} enabled=yes state=running
