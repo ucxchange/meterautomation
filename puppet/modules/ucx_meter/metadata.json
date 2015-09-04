@@ -1,0 +1,23 @@
+{
+  "name": "ucx-meter",
+  "version": "1.0.0",
+  "author": "UCX LLC",
+  "license": "ISC",
+  "summary": "UCX WAC meter module",
+  "source": "https://rtechts.git.cloudforge.com/meter.git",
+  "dependencies": [],
+  "project_page": "https://rtechts.git.cloudforge.com/meter.git",
+  "issues_url": "https://rtechts.git.cloudforge.com/meter/issues",
+  "operatingsystem_support": [
+   	{ "operatingsystem": "Debian",  "operatingsystemrelease": [ "5", "6", "7", "8" ] },
+	{ "operatingsystem": "Ubuntu",  "operatingsystemrelease": [ "12.04", "12.10", "13.04", "13.10", "14.04", "14.10", "15.04" ] },
+	{ "operatingsystem": "RedHat",  "operatingsystemrelease": [ "5", "6" ] },
+	{ "operatingsystem": "FreeBSD", "operatingsystemrelease": [ "10.0" ] },
+	{ "operatingsystem": "NetBSD",  "operatingsystemrelease": [ "5.0", "6.0" ] },
+	{ "operatingsystem": "OpenBSD", "operatingsystemrelease": [ "5.4", "5.5", "5.6", "5.7" ] }
+  ],
+  "tags": [ "puppet", "meter", "ucx", "wac" ],
+  "requirements": [
+    { "name": "puppet", "version_requirement": "3.x" }
+  ]
+}
