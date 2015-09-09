@@ -150,7 +150,7 @@
         force=yes
 
 - name: ucxmeter chown
-    command: /bin/chown -R ubuntu:ubuntu {{ ucx_meter_location }}
+  command: /bin/chown -R ubuntu:ubuntu {{ ucx_meter_location }}
 
 - name: Create initial meter config
   template: src={{ item.file }}.j2 dest={{ ucx_meter_location }}/cfg/{{ ucx_meter_config_file }} mode={{ item.mode }}
