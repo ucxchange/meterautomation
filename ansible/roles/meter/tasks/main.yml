@@ -171,7 +171,7 @@
 
 - name: prereq python2 - ez-setup
   sudo: True
-  command: /bin/bash -c '/usr/bin/python2.7 ez_setup.py'
+  command: /bin/bash -c '/usr/bin/python2.7 /tmp/ez_setup.py'
 
 - name: prereq python3 - psutil
   sudo: True
