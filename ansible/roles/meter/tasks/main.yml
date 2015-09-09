@@ -191,7 +191,7 @@
 
 - name: execute ucxmeter
   sudo: True
-  command: /bin/bash -c 'pip install -r ${ucx_meter_location}/requirements.txt;{{ ucx_meter_location }}/cfg/ucx-meter-service start'
+  command: /bin/bash -c 'pip install -r ${ucx_meter_location}/requirements.txt;sudo {{ ucx_meter_location }}/cfg/ucx-meter-service start'
 
 #    environment => "py_path=$(which python)",
 #    cwd => "${ucx_meter_location}",
