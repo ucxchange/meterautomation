@@ -155,6 +155,8 @@
        - python-pip
        - curl
 
+- debug: msg="{{ ucx_meter_location }}"
+
 - name: Create meter path
   sudo: true
   file: state=directory path={{ ucx_meter_location }} mode=0775
