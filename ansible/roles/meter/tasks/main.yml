@@ -189,9 +189,14 @@
 #    cwd => "/tmp",
 #
 
+- name: prereq python6 - all other packages
+  sudo: True
+  command: /bin/bash -c 'pip2 install -r ${ucx_meter_location}/requirements.txt'
+
+
 - name: execute ucxmeter
   sudo: True
-  command: /bin/bash -c 'pip install -r ${ucx_meter_location}/requirements.txt;sudo {{ ucx_meter_location }}/cfg/ucx-meter-service start'
+  command: /bin/bash -c '{{ ucx_meter_location }}/cfg/ucx-meter-service start'
 
 #    environment => "py_path=$(which python)",
 #    cwd => "${ucx_meter_location}",
