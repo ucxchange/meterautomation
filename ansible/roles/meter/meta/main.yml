@@ -1,7 +1,7 @@
 ---
 
 dependencies:
-  - { role: "install_package", package: "git" }
-  - { role: "install_package", package: "python" }
-  - { role: "install_package", package: "python-pip" }
-  - { role: "install_package", package: "curl" }
+  - { role: "install_package", package: "git", }
+  - { role: "install_package", package: "python", }
+  - { role: "install_package", package: "python-pip", }
+  - { role: "install_package", package: "curl", }
