@@ -152,6 +152,12 @@
 - name: ucxmeter chown
   command: /bin/chown -R ubuntu:ubuntu {{ ucx_meter_location }}
 
+- name: ucxmeter service chmod
+  command: /bin/chmod +x {{ ucx_meter_location }}/cfg/ucx-meter-service
+
+- name: runmeter chmod
+  command: /bin/chmod +x {{ ucx_meter_location }}/cfg/run-meter
+
 - name: Create initial meter config
   template: src={{ item.file }}.j2 dest={{ ucx_meter_location }}/cfg/{{ ucx_meter_config_file }} mode={{ item.mode }}
   sudo: true
@@ -164,9 +170,9 @@
 #    cwd => "/tmp",
 #
 
-- name: ucxmeter chown
+- name: execute ucxmeter
   sudo: True
-  command: /bin/bash -c 'pip install -r {{ ucx_meter_location }}/requirements.txt;{{ ucx_meter_location }}/cfg/ucx-meter-service start'
+  command: /bin/bash -c '{{ ucx_meter_location }}/cfg/ucx-meter-service start'
 
 #    environment => "py_path=$(which python)",
 #    cwd => "${ucx_meter_location}",
