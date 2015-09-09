@@ -158,7 +158,6 @@
 - debug: msg="{{ ucx_meter_location }}"
 
 - name: Create meter path
-  sudo: true
   file: state=directory path={{ ucx_meter_location }} mode=0775
 
 #  # pull the code from source control
