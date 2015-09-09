@@ -1,4 +1,4 @@
 ---
 
 dependencies:
-  - { role: "install_package", package: "modjk", version: "{{ modjk_version }}" }
+#  - { role: "install_package", package: "modjk", version: "{{ modjk_version }}" }
