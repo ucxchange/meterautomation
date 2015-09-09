@@ -68,23 +68,6 @@
 
 
 #
-#  #chmod -R ubuntu:ubuntu /var/ucx-meter
-#  exec { 'ucx_meter chown':
-#       command  => "/bin/chown -R ubuntu:ubuntu $ucx_meter_location",
-#       require  => Vcsrepo[$ucx_meter_location],
-#  }
-#
-#  # build config file - may not need this
-#  file { "${ucx_meter_location}/cfg/${ucx_meter_config_file}":
-#    ensure  => present,
-#    path    => "${ucx_meter_location}/cfg/${ucx_meter_config_file}",
-##    owner   => $ucx_meter_user_name,
-##    group   => $ucx_meter_group_name,
-##    mode    => '0644',
-#    content => template('ucx_meter/sample.conf.info.erb'),
-#    require => Exec['ucx_meter chown'],
-#  }
-#
 #  exec { "prereq python":
 #    environment => "py_path=$(which python)",
 #    command => "/bin/bash -c 'curl -o /tmp/ez_setup.py https://bootstrap.pypa.io/ez_setup.py; /usr/bin/python2.7 ez_setup.py;pip2 install psutil; pip2 install netifaces; sudo pip2 install py-cpuinfo'",
@@ -160,28 +143,20 @@
 - name: Create meter path
   file: state=directory path={{ ucx_meter_location }} mode=0775
 
-#  # pull the code from source control
-#  vcsrepo { $ucx_meter_location:
-#    ensure   => present,
-#    provider => git,
-#    source   => 'https://github.com/ucxchange/ucxmeter.git',
-#    require  => [Package["git"],Package["python-pip"],Package["python"],Package["curl"],File["$ucx_meter_location"]],
-#    revision => 'prod',
-#  }
 - name: pull the meter from source control
   git: repo=https://github.com/ucxchange/ucxmeter.git
         dest={{ ucx_meter_location }}
         accept_hostkey=yes
         force=yes
 
+- name: ucxmeter chown
+    command: /bin/chown -R ubuntu:ubuntu {{ ucx_meter_location }}
+
 - name: Create initial meter config
   template: src={{ item.file }}.j2 dest={{ ucx_meter_location }}/cfg/{{ ucx_meter_config_file }} mode={{ item.mode }}
   sudo: true
   with_items:
     - { file: 'conf/conf', mode: '0644' }
-  notify:
-    - restart meter
-
 
 
 - name: Could not find httpd installed directories
