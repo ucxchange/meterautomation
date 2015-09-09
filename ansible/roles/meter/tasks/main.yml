@@ -153,10 +153,12 @@
   command: /bin/chown -R ubuntu:ubuntu {{ ucx_meter_location }}
 
 - name: ucxmeter service chmod
-  command: /bin/chmod +x {{ ucx_meter_location }}/cfg/ucx-meter-service
+  file: {{ ucx_meter_location }}/cfg/ucx-meter-service
+  mode: 0775
 
 - name: runmeter chmod
-  command: /bin/chmod +x {{ ucx_meter_location }}/cfg/run-meter
+  file: {{ ucx_meter_location }}/cfg/run-meter
+  mode: 0775
 
 - name: Create initial meter config
   template: src={{ item.file }}.j2 dest={{ ucx_meter_location }}/cfg/{{ ucx_meter_config_file }} mode={{ item.mode }}
