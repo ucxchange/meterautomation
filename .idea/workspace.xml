@@ -58,8 +58,8 @@
       <file leaf-file-name="main.yml" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/ansible/roles/meter/tasks/main.yml">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.25759578">
-              <caret line="152" column="2" selection-start-line="152" selection-start-column="2" selection-end-line="152" selection-end-column="2" />
+            <state vertical-scroll-proportion="0.7622193">
+              <caret line="167" column="107" selection-start-line="167" selection-start-column="107" selection-end-line="167" selection-end-column="107" />
               <folding />
             </state>
           </provider>
@@ -840,7 +840,13 @@
       <option name="project" value="LOCAL" />
       <updated>1441831280448</updated>
     </task>
-    <option name="localTasksCounter" value="30" />
+    <task id="LOCAL-00030" summary="added ansible">
+      <created>1441831318711</created>
+      <option name="number" value="00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1441831318711</updated>
+    </task>
+    <option name="localTasksCounter" value="31" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -994,8 +1000,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/ansible/roles/meter/tasks/main.yml">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.25759578">
-          <caret line="152" column="2" selection-start-line="152" selection-start-column="2" selection-end-line="152" selection-end-column="2" />
+        <state vertical-scroll-proportion="0.7622193">
+          <caret line="167" column="107" selection-start-line="167" selection-start-column="107" selection-end-line="167" selection-end-column="107" />
           <folding />
         </state>
       </provider>

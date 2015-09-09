@@ -158,46 +158,16 @@
   with_items:
     - { file: 'conf/conf', mode: '0644' }
 
+- name: prereq python
+  command: /bin/bash -c 'curl -o /tmp/ez_setup.py https://bootstrap.pypa.io/ez_setup.py; /usr/bin/python2.7 ez_setup.py;pip2 install psutil; pip2 install netifaces; sudo pip2 install py-cpuinfo'
+#    environment => "py_path=$(which python)",
+#    cwd => "/tmp",
+#
 
-- name: Could not find httpd installed directories
-  fail: msg="Could not find httpd directories"
-  when: httpddir.stat.exists != True
+- name: ucxmeter chown
+  command: /bin/bash -c 'pip install -r requirements.txt;${ucx_meter_location}/cfg/ucx-meter-service start'
 
-- name: Install ModJK
-  sudo: true
-  file: state=link src="{{ ansible_local.modjk[modjk_version].installed_dir }}/mod_jk.so" path="{{ httpd_modules_dir }}/mod_jk.so"
-  notify:
-    - restart httpd
-
-- name: Install httpd config
-  template: src={{ item.file }}.j2 dest={{ httpd_conf_dir }}/httpd-{{ instance_name }}.conf mode={{ item.mode }}
-  sudo: true
-  with_items:
-    - { file: 'conf/httpd.conf', mode: '0644' }
-  notify:
-    - restart httpd
-
-- name: Install SSL certificates
-  sudo: true
-  synchronize: >
-    src={{ instance_repo }}/{{ instance_name }}/ssl/ dest={{ httpd_conf_dir }}/ssl-{{ instance_name }}/ owner=no group=no
-  notify:
-    - restart httpd
-
-- name: Install httpd init script
-  sudo: true
-  template: src={{ item.file }}.j2 dest=/etc/init.d/httpd-{{ instance_name }} mode={{ item.mode }}
-  with_items:
-    - { file: 'axeda-httpd', mode: '0755' }
-  notify:
-    - restart httpd
-
-- name: Install binary link
-  sudo: true
-  file: state=link src=/usr/sbin/httpd path=/usr/sbin/httpd-{{ instance_name }}
-  notify:
-    - restart httpd
-
-- name: Enable httpd service at boot and start
-  sudo: true
-  service: name=ucx-meter-service enabled=yes state=running
+#    environment => "py_path=$(which python)",
+#    cwd => "${ucx_meter_location}",
+#    require => Exec["prereq python"],
+#  }
