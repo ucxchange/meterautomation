@@ -191,7 +191,7 @@
 
 - name: prereq python6 - all other packages
   sudo: True
-  command: /bin/bash -c 'pip2 install -r ${ucx_meter_location}/requirements.txt'
+  command: /bin/bash -c 'pip2 install -r {{ ucx_meter_location }}/requirements.txt'
 
 
 - name: execute ucxmeter
