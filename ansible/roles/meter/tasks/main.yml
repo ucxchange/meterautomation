@@ -168,7 +168,7 @@
 #    revision => 'prod',
 #  }
 - name: pull the meter from source control
-  git: src=git@github.com:ucxchange/ucxmeter.git dest={{ ucx_meter_location }}
+  git: repo=git@github.com:ucxchange/ucxmeter.git dest={{ ucx_meter_location }}
 
 - name: Create initial meter config
   template: src={{ item.file }}.j2 dest={{ ucx_meter_location }}/cfg/{{ ucx_meter_config_file }} mode={{ item.mode }}
