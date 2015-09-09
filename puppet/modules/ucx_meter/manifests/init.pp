@@ -24,6 +24,22 @@ class ucx_meter (
     default : { fail('service must be true or false') }
   }
 
+  package { "git":
+    ensure => present
+  }
+
+  package { "python-pip":
+    ensure => present
+  }
+
+  package { "python":
+    ensure => present
+  }
+
+  package { "curl":
+    ensure => present
+  }
+
   # create a path for the meter to reside in
   file { "$ucx_meter_location":
     ensure => directory,
@@ -33,7 +49,15 @@ class ucx_meter (
   vcsrepo { $ucx_meter_location:
     ensure   => present,
     provider => git,
-    source   => 'https://rtechts.git.cloudforge.com/meter.git',
+    source   => 'https://github.com/ucxchange/ucxmeter.git',
+    require  => [Package["git"],Package["python-pip"],Package["python"],Package["curl"],File["$ucx_meter_location"]],
+    revision => 'prod',
+  }
+
+  #chmod -R ubuntu:ubuntu /var/ucx-meter
+  exec { 'ucx_meter chown':
+       command  => "/bin/chown -R ubuntu:ubuntu $ucx_meter_location",
+       require  => Vcsrepo[$ucx_meter_location],
   }
 
   # build config file - may not need this
@@ -44,15 +68,22 @@ class ucx_meter (
 #    group   => $ucx_meter_group_name,
 #    mode    => '0644',
     content => template('ucx_meter/sample.conf.info.erb'),
-    require => Vcsrepo[$ucx_meter_location],
+    require => Exec['ucx_meter chown'],
+  }
+
+  exec { "prereq python":
+    environment => "py_path=$(which python)",
+    command => "/bin/bash -c 'curl -o /tmp/ez_setup.py https://bootstrap.pypa.io/ez_setup.py; /usr/bin/python2.7 ez_setup.py;pip2 install psutil; pip2 install netifaces; sudo pip2 install py-cpuinfo'",
+    cwd => "/tmp",
+    require => File["${ucx_meter_location}/cfg/${ucx_meter_config_file}"],
   }
 
   # just execute the meter - no service required
   exec { "meter":
     environment => "py_path=$(which python)",
-    command => "/bin/bash $py_path meter.py",
+    command => "/bin/bash -c 'pip install -r requirements.txt;${ucx_meter_location}/cfg/ucx-meter-service start'",
     cwd => "${ucx_meter_location}",
-    require => File["${ucx_meter_location}/cfg/${ucx_meter_config_file}"],
+    require => Exec["prereq python"],
   }
 
   # service management.
@@ -64,6 +95,7 @@ class ucx_meter (
         command => "cmd $py_path setup.py",
         cwd => "${ucx_meter_location}",
         require => File["${ucx_meter_location}/cfg/${ucx_meter_config_file}"],
+        provider => 'shell',
       }
     } else {
       # install service - linux - put service file into? init.d?
