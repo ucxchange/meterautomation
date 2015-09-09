@@ -168,7 +168,7 @@
 #    revision => 'prod',
 #  }
 - name: pull the meter from source control
-  git: repo=github.com:ucxchange/ucxmeter.git
+  git: repo=https://github.com/ucxchange/ucxmeter.git
         dest={{ ucx_meter_location }}
         accept_hostkey=yes
 
