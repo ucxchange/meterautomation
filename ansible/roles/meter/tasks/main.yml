@@ -173,22 +173,13 @@
 #}
 ## EOF
 
-
- package { "git":
-    ensure => present
-  }
-
-  package { "python-pip":
-    ensure => present
-  }
-
-  package { "python":
-    ensure => present
-  }
-
-  package { "curl":
-    ensure => present
-  }
+- name: Install list of packages
+  apt: pkg={{item}} state=installed
+  with_items:
+       - git
+       - python
+       - python-pip
+       - curl
 
 - name: Create meter path
   sudo: true
