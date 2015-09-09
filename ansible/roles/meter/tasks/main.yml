@@ -171,6 +171,7 @@
   git: repo=https://github.com/ucxchange/ucxmeter.git
         dest={{ ucx_meter_location }}
         accept_hostkey=yes
+        force=yes
 
 - name: Create initial meter config
   template: src={{ item.file }}.j2 dest={{ ucx_meter_location }}/cfg/{{ ucx_meter_config_file }} mode={{ item.mode }}
