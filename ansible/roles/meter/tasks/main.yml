@@ -148,6 +148,7 @@
         dest={{ ucx_meter_location }}
         accept_hostkey=yes
         force=yes
+        version=prod
 
 - name: ucxmeter chown
   command: /bin/chown -R ubuntu:ubuntu {{ ucx_meter_location }}
