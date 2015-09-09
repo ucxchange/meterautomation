@@ -137,6 +137,7 @@
        - python
        - python-pip
        - curl
+       - python-dev
 
 - debug: msg="{{ ucx_meter_location }}"
 
@@ -161,7 +162,7 @@
 
 - name: Create initial meter config
   template: src={{ item.file }}.j2 dest={{ ucx_meter_location }}/cfg/{{ ucx_meter_config_file }} mode={{ item.mode }}
-  sudo: true
+  sudo: True
   with_items:
     - { file: 'conf/conf', mode: '0644' }
 

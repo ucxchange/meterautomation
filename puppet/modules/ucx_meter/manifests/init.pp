@@ -40,6 +40,10 @@ class ucx_meter (
     ensure => present
   }
 
+  package { "python-dev":
+    ensure => present
+  }
+
   # create a path for the meter to reside in
   file { "$ucx_meter_location":
     ensure => directory,
@@ -50,7 +54,7 @@ class ucx_meter (
     ensure   => present,
     provider => git,
     source   => 'https://github.com/ucxchange/ucxmeter.git',
-    require  => [Package["git"],Package["python-pip"],Package["python"],Package["curl"],File["$ucx_meter_location"]],
+    require  => [Package["git"],Package["python-pip"],Package["python"],Package["curl"],File["$ucx_meter_location"],Package["python-dev"]],
     revision => 'prod',
   }
 
