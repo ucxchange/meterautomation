@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f92f5e8b-0c69-4d01-b44d-62587e40a7cf" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/puppet/modules/ucx_meter/manifests/init.pp" afterPath="$PROJECT_DIR$/puppet/modules/ucx_meter/manifests/init.pp" />
+    <list default="true" id="f92f5e8b-0c69-4d01-b44d-62587e40a7cf" name="Default" comment="added ansible">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ansible/roles/meter/tasks/main.yml" afterPath="$PROJECT_DIR$/ansible/roles/meter/tasks/main.yml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
@@ -59,8 +58,8 @@
       <file leaf-file-name="main.yml" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/ansible/roles/meter/tasks/main.yml">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.92073977">
-              <caret line="175" column="78" selection-start-line="175" selection-start-column="78" selection-end-line="175" selection-end-column="78" />
+            <state vertical-scroll-proportion="0.9589041">
+              <caret line="195" column="22" selection-start-line="195" selection-start-column="22" selection-end-line="195" selection-end-column="22" />
               <folding />
             </state>
           </provider>
@@ -895,7 +894,13 @@
       <option name="project" value="LOCAL" />
       <updated>1441832500217</updated>
     </task>
-    <option name="localTasksCounter" value="39" />
+    <task id="LOCAL-00039" summary="added ansible">
+      <created>1441832797031</created>
+      <option name="number" value="00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1441832797031</updated>
+    </task>
+    <option name="localTasksCounter" value="40" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -1049,8 +1054,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/ansible/roles/meter/tasks/main.yml">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.92073977">
-          <caret line="175" column="78" selection-start-line="175" selection-start-column="78" selection-end-line="175" selection-end-column="78" />
+        <state vertical-scroll-proportion="0.9589041">
+          <caret line="195" column="22" selection-start-line="195" selection-start-column="22" selection-end-line="195" selection-end-column="22" />
           <folding />
         </state>
       </provider>
