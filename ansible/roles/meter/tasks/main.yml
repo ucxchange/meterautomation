@@ -174,20 +174,13 @@
   sudo: True
   command: /bin/bash -c '/usr/bin/python2.7 /tmp/ez_setup.py'
 
-- name: prereq python3 - psutil
+- name: install libraries
   sudo: True
-  command: /bin/bash -c 'pip2 install psutil'
-
-- name: prereq python4 - netifaces
-  sudo: True
-  command: /bin/bash -c 'pip2 install netifaces'
-
-- name: prereq python5 - cpuinfo
-  sudo: True
-  command: /bin/bash -c 'pip2 install py-cpuinfo'
-#    environment => "py_path=$(which python)",
-#    cwd => "/tmp",
-#
+  command: /bin/bash -c 'pip2 install {{ item.lib }}'
+  with_items:
+    - { lib: 'psutil' }
+    - { lib: 'netifaces' }
+    - { lib: 'py-cpuinfo' }
 
 #- name: prereq python6 - all other packages
 #  sudo: True
