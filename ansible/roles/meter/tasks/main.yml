@@ -63,36 +63,10 @@
 #    false   : { $ensure_service = 'stopped' }
 #    default : { fail('service must be true or false') }
 #  }
-#
-#  package { "git":
-#    ensure => present
-#  }
-#
-#  package { "python-pip":
-#    ensure => present
-#  }
-#
-#  package { "python":
-#    ensure => present
-#  }
-#
-#  package { "curl":
-#    ensure => present
-#  }
-#
-#  # create a path for the meter to reside in
-#  file { "$ucx_meter_location":
-#    ensure => directory,
-#  }
-#
-#  # pull the code from source control
-#  vcsrepo { $ucx_meter_location:
-#    ensure   => present,
-#    provider => git,
-#    source   => 'https://github.com/ucxchange/ucxmeter.git',
-#    require  => [Package["git"],Package["python-pip"],Package["python"],Package["curl"],File["$ucx_meter_location"]],
-#    revision => 'prod',
-#  }
+
+
+
+
 #
 #  #chmod -R ubuntu:ubuntu /var/ucx-meter
 #  exec { 'ucx_meter chown':
@@ -185,9 +159,14 @@
   sudo: true
   file: state=directory path={{ ucx_meter_location }} mode=0775
 
-  # pull the code from source control
+#  # pull the code from source control
 #  vcsrepo { $ucx_meter_location:
-#    source   => 'https://rtechts.git.cloudforge.com/meter.git',
+#    ensure   => present,
+#    provider => git,
+#    source   => 'https://github.com/ucxchange/ucxmeter.git',
+#    require  => [Package["git"],Package["python-pip"],Package["python"],Package["curl"],File["$ucx_meter_location"]],
+#    revision => 'prod',
+#  }
 
 - name: Create initial meter config
   template: src={{ item.file }}.j2 dest={{ ucx_meter_location }}/cfg/{{ ucx_meter_config_file }} mode={{ item.mode }}
