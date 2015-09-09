@@ -5,7 +5,7 @@ enable: true
 
 ucx_meter_package_name: 'ucx_meter'
 ucx_meter_service_name: 'ucx_meter_service'
-ucx_meter_location:     '/tmp/ucxmeter'
+ucx_meter_location:     '/var/ucxmeter'
 ucx_meter_config_file:  'config.info'
 ucx_meter_user_name:    'root'
 ucx_meter_group_name:   'root'
