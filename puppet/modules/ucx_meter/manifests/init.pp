@@ -93,21 +93,6 @@ class ucx_meter () {
 #        provider => 'shell',
 #      }
 #    } else {
-#      # install service - linux - put service file into? init.d?
-#      # exec { "meter":
-#      #    environment => "py_path=$(which python)",
-#      #    command => "/bin/bash $py_path meter.py",
-#      #    cwd => "${ucx_meter_location}",
-#      #    require => File["${ucx_meter_location}/cfg/${ucx_meter_config_file}"],
-#      # }
-#      # cron the watchdog to ensure the service is running - linux only
-#      # chkconfig?
-#      cron { meter:
-#        command => "${ucx_meter_location}/cfg/watchdog.sh",
-#        user    => root,
-#        hour    => 0,
-#        minute  => 5
-#      }
 #    }
 #  }
 }

@@ -53,3 +53,5 @@
   command: /bin/bash -c '{{ ucx_meter_location }}/cfg/{{ ucx_meter_service_name }} start'
   async: 45
   poll: 0
+
+# service management. TODO - needs to be implemented for windows

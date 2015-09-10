@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f92f5e8b-0c69-4d01-b44d-62587e40a7cf" name="Default" comment="">
+    <list default="true" id="f92f5e8b-0c69-4d01-b44d-62587e40a7cf" name="Default" comment="added ansible">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/puppet/modules/ucx_meter/manifests/init.pp" afterPath="$PROJECT_DIR$/puppet/modules/ucx_meter/manifests/init.pp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ansible/roles/meter/defaults/main.yml" afterPath="$PROJECT_DIR$/ansible/roles/meter/defaults/main.yml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/puppet/modules/ucx_meter/manifests/params.pp" afterPath="$PROJECT_DIR$/puppet/modules/ucx_meter/manifests/params.pp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ansible/roles/meter/tasks/main.yml" afterPath="$PROJECT_DIR$/ansible/roles/meter/tasks/main.yml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="meterautomation.iws" />
@@ -27,11 +26,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="init.pp" pinned="false" current-in-tab="true">
+      <file leaf-file-name="init.pp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/puppet/modules/ucx_meter/manifests/init.pp">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.20483641">
-              <caret line="46" column="25" selection-start-line="46" selection-start-column="25" selection-end-line="46" selection-end-column="25" />
+            <state vertical-scroll-proportion="-7.462963">
+              <caret line="83" column="10" selection-start-line="83" selection-start-column="0" selection-end-line="84" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -57,21 +56,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="main.yml" pinned="false" current-in-tab="false">
+      <file leaf-file-name="main.yml" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/ansible/roles/meter/tasks/main.yml">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-12.777778">
-              <caret line="23" column="51" selection-start-line="23" selection-start-column="51" selection-end-line="23" selection-end-column="51" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="sample.conf.info.erb" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/puppet/modules/ucx_meter/templates/sample.conf.info.erb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="5" column="6" selection-start-line="0" selection-start-column="0" selection-end-line="5" selection-end-column="6" />
+            <state vertical-scroll-proportion="0.89726025">
+              <caret line="56" column="0" selection-start-line="56" selection-start-column="0" selection-end-line="56" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -105,10 +94,10 @@
         <option value="$PROJECT_DIR$/ansible/roles/meter/meta/main.yml" />
         <option value="$PROJECT_DIR$/ansible/site.yml" />
         <option value="$PROJECT_DIR$/ansible/roles/meter/handlers/main.yml" />
-        <option value="$PROJECT_DIR$/ansible/roles/meter/tasks/main.yml" />
-        <option value="$PROJECT_DIR$/puppet/modules/ucx_meter/manifests/init.pp" />
         <option value="$PROJECT_DIR$/ansible/roles/meter/defaults/main.yml" />
         <option value="$PROJECT_DIR$/puppet/modules/ucx_meter/manifests/params.pp" />
+        <option value="$PROJECT_DIR$/puppet/modules/ucx_meter/manifests/init.pp" />
+        <option value="$PROJECT_DIR$/ansible/roles/meter/tasks/main.yml" />
       </list>
     </option>
   </component>
@@ -450,12 +439,6 @@
       <option name="number" value="Default" />
       <updated>1440683549379</updated>
     </task>
-    <task id="LOCAL-00016" summary="added ansible">
-      <created>1441829915981</created>
-      <option name="number" value="00016" />
-      <option name="project" value="LOCAL" />
-      <updated>1441829915981</updated>
-    </task>
     <task id="LOCAL-00017" summary="added ansible">
       <created>1441830045472</created>
       <option name="number" value="00017" />
@@ -744,7 +727,13 @@
       <option name="project" value="LOCAL" />
       <updated>1441896955280</updated>
     </task>
-    <option name="localTasksCounter" value="65" />
+    <task id="LOCAL-00065" summary="added ansible">
+      <created>1441897836962</created>
+      <option name="number" value="00065" />
+      <option name="project" value="LOCAL" />
+      <updated>1441897836962</updated>
+    </task>
+    <option name="localTasksCounter" value="66" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -867,10 +856,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ansible/roles/meter/tasks/main.yml">
+    <entry file="file://$PROJECT_DIR$/puppet/modules/ucx_meter/templates/sample.conf.info.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-12.777778">
-          <caret line="23" column="51" selection-start-line="23" selection-start-column="51" selection-end-line="23" selection-end-column="51" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="5" column="6" selection-start-line="0" selection-start-column="0" selection-end-line="5" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/puppet/modules/ucx_meter/manifests/init.pp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-7.462963">
+          <caret line="83" column="10" selection-start-line="83" selection-start-column="0" selection-end-line="84" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -883,14 +880,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/puppet/modules/ucx_meter/templates/sample.conf.info.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="5" column="6" selection-start-line="0" selection-start-column="0" selection-end-line="5" selection-end-column="6" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/puppet/modules/ucx_meter/manifests/params.pp">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-3.8888888">
@@ -899,10 +888,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/puppet/modules/ucx_meter/manifests/init.pp">
+    <entry file="file://$PROJECT_DIR$/ansible/roles/meter/tasks/main.yml">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.20483641">
-          <caret line="46" column="25" selection-start-line="46" selection-start-column="25" selection-end-line="46" selection-end-column="25" />
+        <state vertical-scroll-proportion="0.89726025">
+          <caret line="56" column="0" selection-start-line="56" selection-start-column="0" selection-end-line="56" selection-end-column="0" />
           <folding />
         </state>
       </provider>
