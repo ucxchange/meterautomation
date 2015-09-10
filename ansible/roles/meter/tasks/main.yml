@@ -187,7 +187,7 @@
 #  command: /bin/bash -c 'pip2 install -r {{ ucx_meter_location }}/requirements.txt'
 
 - name: execute ucxmeter
-  script: '{{ ucx_meter_location }}/cfg/ucx-meter-service start'
+  script: '{{ ucx_meter_location }}/cfg/ucx-meter-service start' creates=/var/ucx_meter/here.log
   #shell: '{{ ucx_meter_location }}/cfg/ucx-meter-service start'
   sudo: True
 #  command: /bin/bash -c '{{ ucx_meter_location }}/cfg/ucx-meter-service start'
