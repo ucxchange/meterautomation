@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f92f5e8b-0c69-4d01-b44d-62587e40a7cf" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ansible/roles/meter/tasks/main.yml" afterPath="$PROJECT_DIR$/ansible/roles/meter/tasks/main.yml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="meterautomation.iws" />
@@ -57,8 +58,8 @@
       <file leaf-file-name="main.yml" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/ansible/roles/meter/tasks/main.yml">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.75342464">
-              <caret line="191" column="11" selection-start-line="191" selection-start-column="11" selection-end-line="191" selection-end-column="11" />
+            <state vertical-scroll-proportion="0.7123288">
+              <caret line="189" column="76" selection-start-line="189" selection-start-column="76" selection-end-line="189" selection-end-column="76" />
               <folding />
             </state>
           </provider>
@@ -665,12 +666,6 @@
       <option name="number" value="Default" />
       <updated>1440683549379</updated>
     </task>
-    <task id="LOCAL-00002" summary="more details">
-      <created>1440688195745</created>
-      <option name="number" value="00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1440688195745</updated>
-    </task>
     <task id="LOCAL-00003" summary="testing begins for puppet">
       <created>1440692029262</created>
       <option name="number" value="00003" />
@@ -959,7 +954,13 @@
       <option name="project" value="LOCAL" />
       <updated>1441843759105</updated>
     </task>
-    <option name="localTasksCounter" value="51" />
+    <task id="LOCAL-00051" summary="added ansible">
+      <created>1441843830663</created>
+      <option name="number" value="00051" />
+      <option name="project" value="LOCAL" />
+      <updated>1441843830663</updated>
+    </task>
+    <option name="localTasksCounter" value="52" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -1113,8 +1114,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/ansible/roles/meter/tasks/main.yml">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.75342464">
-          <caret line="191" column="11" selection-start-line="191" selection-start-column="11" selection-end-line="191" selection-end-column="11" />
+        <state vertical-scroll-proportion="0.7123288">
+          <caret line="189" column="76" selection-start-line="189" selection-start-column="76" selection-end-line="189" selection-end-column="76" />
           <folding />
         </state>
       </provider>
