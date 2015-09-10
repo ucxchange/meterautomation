@@ -1,4 +1,4 @@
-- name: Install list of packages
+- name: Install list of packages to support meter
   apt: pkg={{item}} state=installed
   with_items:
        - git
@@ -7,23 +7,21 @@
        - curl
        - python-dev
 
-- debug: msg="{{ ucx_meter_location }}"
-
 - name: Create meter path
   file: state=directory path={{ ucx_meter_location }} mode=0775
 
 - name: pull the meter from source control
-  git: repo=https://github.com/ucxchange/ucxmeter.git
+  git: repo={{ ucx_meter_source_location }}
         dest={{ ucx_meter_location }}
         accept_hostkey=yes
         force=yes
         version=prod
 
-- name: ucxmeter chown
-  command: /bin/chown -R ubuntu:ubuntu {{ ucx_meter_location }}
+- name: chown meter
+  command: /bin/chown -R {{ ucx_meter_user_name }}:{{ ucx_meter_group_name }} {{ ucx_meter_location }}
 
 - name: ucxmeter service chmod
-  file: path={{ ucx_meter_location }}/cfg/ucx-meter-service mode="u+x"
+  file: path={{ ucx_meter_location }}/cfg/{{ ucx_meter_service_name }} mode="u+x"
 
 - name: runmeter chmod
   file: path={{ ucx_meter_location }}/cfg/run-meter mode="u+x"
@@ -34,11 +32,11 @@
   with_items:
     - { file: 'conf/conf', mode: '0644' }
 
-- name: prereq python1 - download ez-setup
+- name: prereq python1 - download ez-setup python 2.7
   sudo: True
   command: /bin/bash -c 'curl -o /tmp/ez_setup.py https://bootstrap.pypa.io/ez_setup.py'
 
-- name: prereq python2 - ez-setup
+- name: prereq python2 - ez-setup python 2.7
   sudo: True
   command: /bin/bash -c '/usr/bin/python2.7 /tmp/ez_setup.py'
 
@@ -52,6 +50,6 @@
 
 - name: execute ucxmeter
   sudo: True
-  command: /bin/bash -c '{{ ucx_meter_location }}/cfg/ucx-meter-service start'
+  command: /bin/bash -c '{{ ucx_meter_location }}/cfg/{{ ucx_meter_service_name }} start'
   async: 45
   poll: 0

@@ -5,18 +5,18 @@
 # requires vcsrepo module
 #         puppet module install puppetlabs-vcsrepo
 
-class ucx_meter (
-  $service        = false,
-  $enable         = true) {
+class ucx_meter () {
   include ucx_meter::params
 
   # Import some variables from ucx_meter::params.
+  $service                = $ucx_meter::params::service
   $ucx_meter_service_name = $ucx_meter::params::ucx_meter_service_name
   $ucx_meter_location     = $ucx_meter::params::ucx_meter_location
   $ucx_meter_config_file  = $ucx_meter::params::ucx_meter_config_file
   $ucx_meter_user_name    = $ucx_meter::params::ucx_meter_user_name
   $ucx_meter_group_name   = $ucx_meter::params::ucx_meter_group_name
   $ucx_meter_infrastructure_name = $ucx_meter::params::ucx_meter_infrastructure_name
+  $ucx_meter_source_location  = $ucx_meter::params::ucx_meter_source_location
 
   case $service {
     true    : { $ensure_service = 'running' }
@@ -24,25 +24,11 @@ class ucx_meter (
     default : { fail('service must be true or false') }
   }
 
-  package { "git":
-    ensure => present
-  }
-
-  package { "python-pip":
-    ensure => present
-  }
-
-  package { "python":
-    ensure => present
-  }
-
-  package { "curl":
-    ensure => present
-  }
-
-  package { "python-dev":
-    ensure => present
-  }
+  $packages = [ "git", "python-pip", "curl", "python-dev" ]
+  package { $packages:
+    ensure => "present",
+    before => File["$ucx_meter_location"]
+}
 
   # create a path for the meter to reside in
   file { "$ucx_meter_location":
@@ -53,14 +39,14 @@ class ucx_meter (
   vcsrepo { $ucx_meter_location:
     ensure   => present,
     provider => git,
-    source   => 'https://github.com/ucxchange/ucxmeter.git',
-    require  => [Package["git"],Package["python-pip"],Package["python"],Package["curl"],File["$ucx_meter_location"],Package["python-dev"]],
+    source   => $ucx_meter_source_location,
+    require  => File["$ucx_meter_location"],
     revision => 'prod',
   }
 
-  #chmod -R ubuntu:ubuntu /var/ucx-meter
+  #chmod -R $ucx_meter_user_name:$ucx_meter_group_name $ucx_meter_location
   exec { 'ucx_meter chown':
-       command  => "/bin/chown -R ubuntu:ubuntu $ucx_meter_location",
+       command  => "/bin/chown -R $ucx_meter_user_name:$ucx_meter_group_name $ucx_meter_location",
        require  => Vcsrepo[$ucx_meter_location],
   }
 
@@ -68,9 +54,9 @@ class ucx_meter (
   file { "${ucx_meter_location}/cfg/${ucx_meter_config_file}":
     ensure  => present,
     path    => "${ucx_meter_location}/cfg/${ucx_meter_config_file}",
-#    owner   => $ucx_meter_user_name,
-#    group   => $ucx_meter_group_name,
-#    mode    => '0644',
+    owner   => $ucx_meter_user_name,
+    group   => $ucx_meter_group_name,
+    mode    => '0644',
     content => template('ucx_meter/sample.conf.info.erb'),
     require => Exec['ucx_meter chown'],
   }
@@ -90,33 +76,33 @@ class ucx_meter (
     require => Exec["prereq python"],
   }
 
-  # service management.
-  if ($service == true) {
-    # install service - windows
-    if $osfamily == 'windows' {
-      exec { "meter":
-        environment => "py_path=$(which python)",
-        command => "cmd $py_path setup.py",
-        cwd => "${ucx_meter_location}",
-        require => File["${ucx_meter_location}/cfg/${ucx_meter_config_file}"],
-        provider => 'shell',
-      }
-    } else {
-      # install service - linux - put service file into? init.d?
-      # exec { "meter":
-      #    environment => "py_path=$(which python)",
-      #    command => "/bin/bash $py_path meter.py",
-      #    cwd => "${ucx_meter_location}",
-      #    require => File["${ucx_meter_location}/cfg/${ucx_meter_config_file}"],
-      # }
-      # cron the watchdog to ensure the service is running - linux only
-      # chkconfig?
-      cron { meter:
-        command => "${ucx_meter_location}/cfg/watchdog.sh",
-        user    => root,
-        hour    => 0,
-        minute  => 5
-      }
-    }
-  }
+  # service management. TODO - needs to be implemented for windows
+#  if ($service == true) {
+#    # install service - windows
+#    if $osfamily == 'windows' {
+#      exec { "meter":
+#        environment => "py_path=$(which python)",
+#        command => "cmd $py_path setup.py",
+#        cwd => "${ucx_meter_location}",
+#        require => File["${ucx_meter_location}/cfg/${ucx_meter_config_file}"],
+#        provider => 'shell',
+#      }
+#    } else {
+#      # install service - linux - put service file into? init.d?
+#      # exec { "meter":
+#      #    environment => "py_path=$(which python)",
+#      #    command => "/bin/bash $py_path meter.py",
+#      #    cwd => "${ucx_meter_location}",
+#      #    require => File["${ucx_meter_location}/cfg/${ucx_meter_config_file}"],
+#      # }
+#      # cron the watchdog to ensure the service is running - linux only
+#      # chkconfig?
+#      cron { meter:
+#        command => "${ucx_meter_location}/cfg/watchdog.sh",
+#        user    => root,
+#        hour    => 0,
+#        minute  => 5
+#      }
+#    }
+#  }
 }

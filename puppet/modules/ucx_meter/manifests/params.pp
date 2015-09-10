@@ -4,16 +4,15 @@
 #
 class ucx_meter::params {
   # Defaults values.
-  $package = true
-  $service = true
-  $enable  = true
-
-  $ucx_meter_package_name = 'ucx_meter'
+  $service = false
   $ucx_meter_service_name = 'ucx_meter_service'
   $ucx_meter_location   = '/var/ucx_meter'
   $ucx_meter_config_file  = 'config.info'
-  $ucx_meter_user_name    = 'root'
-  $ucx_meter_group_name   = 'root'
-  $ucx_meter_infrastructure_name = 'new infra puppet 01'
+  $ucx_meter_user_name    = 'ubuntu'
+  $ucx_meter_group_name   = 'ubuntu'
+  $ucx_meter_infrastructure_name = ''
+  # must change the infrastructure name before running automation
+  $ucx_meter_source_location = 'https://github.com/ucxchange/ucxmeter.git'
 }
-# EOF
+
+
