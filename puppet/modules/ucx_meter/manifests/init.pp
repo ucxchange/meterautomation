@@ -118,21 +118,5 @@ class ucx_meter (
         minute  => 5
       }
     }
-
-    # first check for os - must be linux, not mac, not windows
-#    file { '/etc/init.d/ucx_meter-service':
-#      ensure => present,
-#      source => "${ucx_meter_location}/cfg/${ucx_meter_service_name}",
-#      require => Vcsrepo[$ucx_meter_location]
-#    }
-#
-#    service { $ucx_meter_service_name:
-#      ensure     => $ensure_service,
-#      enable     => $enable,
-#      hasrestart => true,
-#      hasstatus  => true,
-#      require    => File['/etc/init.d/ucx_meter-service'],
-#    }
   }
 }
-# EOF
