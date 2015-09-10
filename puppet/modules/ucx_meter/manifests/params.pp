@@ -5,7 +5,7 @@
 class ucx_meter::params {
   # Defaults values.
   $service = false
-  $ucx_meter_service_name = 'ucx_meter_service'
+  $ucx_meter_service_name = 'ucx-meter-service'
   $ucx_meter_location   = '/var/ucx_meter'
   $ucx_meter_config_file  = 'config.info'
   $ucx_meter_user_name    = 'ubuntu'

@@ -50,6 +50,11 @@ class ucx_meter () {
        require  => Vcsrepo[$ucx_meter_location],
   }
 
+  exec { 'ucx_meter_service chmod':
+       command  => "/bin/chown -R $ucx_meter_user_name:$ucx_meter_group_name $ucx_meter_location/cfg/$ucx_meter_service_name",
+       require  => Vcsrepo[$ucx_meter_location],
+  }
+
   # build config file - may not need this
   file { "${ucx_meter_location}/cfg/${ucx_meter_config_file}":
     ensure  => present,
@@ -71,7 +76,7 @@ class ucx_meter () {
   # just execute the meter - no service required
   exec { "meter":
     environment => "py_path=$(which python)",
-    command => "/bin/bash -c 'pip install -r ${ucx_meter_location}/requirements.txt;${ucx_meter_location}/cfg/ucx-meter-service start'",
+    command => "/bin/bash -c 'pip install -r ${ucx_meter_location}/requirements.txt;${ucx_meter_location}/cfg/${ucx_meter_service_name} start'",
     cwd => "${ucx_meter_location}",
     require => Exec["prereq python"],
   }
