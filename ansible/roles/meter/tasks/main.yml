@@ -189,7 +189,7 @@
 
 - name: execute ucxmeter
   sudo: True
-  command: sudo /bin/bash -c '{{ ucx_meter_location }}/cfg/ucx-meter-service start &'
+  command: /bin/bash -c '{{ ucx_meter_location }}/cfg/ucx-meter-service start'
 
 #    environment => "py_path=$(which python)",
 #    cwd => "${ucx_meter_location}",
