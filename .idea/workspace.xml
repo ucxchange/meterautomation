@@ -3,9 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="f92f5e8b-0c69-4d01-b44d-62587e40a7cf" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ansible/roles/meter/templates/conf/conf.j2" afterPath="$PROJECT_DIR$/ansible/roles/meter/templates/conf/conf.j2" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/puppet/modules/ucx_meter/manifests/init.pp" afterPath="$PROJECT_DIR$/puppet/modules/ucx_meter/manifests/init.pp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ansible/roles/meter/defaults/main.yml" afterPath="$PROJECT_DIR$/ansible/roles/meter/defaults/main.yml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/puppet/modules/ucx_meter/manifests/params.pp" afterPath="$PROJECT_DIR$/puppet/modules/ucx_meter/manifests/params.pp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/puppet/modules/ucx_meter/templates/sample.conf.info.erb" afterPath="$PROJECT_DIR$/puppet/modules/ucx_meter/templates/sample.conf.info.erb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
@@ -79,21 +76,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="conf.j2" pinned="false" current-in-tab="false">
+      <file leaf-file-name="conf.j2" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/ansible/roles/meter/templates/conf/conf.j2">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="2" column="17" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="17" />
+            <state vertical-scroll-proportion="0.090361446">
+              <caret line="3" column="15" selection-start-line="3" selection-start-column="15" selection-end-line="3" selection-end-column="15" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="sample.conf.info.erb" pinned="false" current-in-tab="true">
+      <file leaf-file-name="sample.conf.info.erb" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/puppet/modules/ucx_meter/templates/sample.conf.info.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.060240965">
-              <caret line="2" column="17" selection-start-line="0" selection-start-column="0" selection-end-line="8" selection-end-column="13" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="3" column="15" selection-start-line="3" selection-start-column="15" selection-end-line="3" selection-end-column="15" />
               <folding />
             </state>
           </provider>
@@ -130,8 +127,8 @@
         <option value="$PROJECT_DIR$/puppet/modules/ucx_meter/manifests/params.pp" />
         <option value="$PROJECT_DIR$/ansible/roles/meter/defaults/main.yml" />
         <option value="$PROJECT_DIR$/puppet/modules/ucx_meter/manifests/init.pp" />
-        <option value="$PROJECT_DIR$/ansible/roles/meter/templates/conf/conf.j2" />
         <option value="$PROJECT_DIR$/puppet/modules/ucx_meter/templates/sample.conf.info.erb" />
+        <option value="$PROJECT_DIR$/ansible/roles/meter/templates/conf/conf.j2" />
       </list>
     </option>
   </component>
@@ -539,12 +536,6 @@
       <option name="number" value="Default" />
       <updated>1440683549379</updated>
     </task>
-    <task id="LOCAL-00022" summary="added ansible">
-      <created>1441830432350</created>
-      <option name="number" value="00022" />
-      <option name="project" value="LOCAL" />
-      <updated>1441830432350</updated>
-    </task>
     <task id="LOCAL-00023" summary="added ansible">
       <created>1441830599238</created>
       <option name="number" value="00023" />
@@ -833,7 +824,13 @@
       <option name="project" value="LOCAL" />
       <updated>1441996268501</updated>
     </task>
-    <option name="localTasksCounter" value="71" />
+    <task id="LOCAL-00071" summary="added exchange name in conf.">
+      <created>1441996833478</created>
+      <option name="number" value="00071" />
+      <option name="project" value="LOCAL" />
+      <updated>1441996833479</updated>
+    </task>
+    <option name="localTasksCounter" value="72" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -1060,18 +1057,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ansible/roles/meter/templates/conf/conf.j2">
+    <entry file="file://$PROJECT_DIR$/puppet/modules/ucx_meter/templates/sample.conf.info.erb">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="2" column="17" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="17" />
+          <caret line="3" column="15" selection-start-line="3" selection-start-column="15" selection-end-line="3" selection-end-column="15" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/puppet/modules/ucx_meter/templates/sample.conf.info.erb">
+    <entry file="file://$PROJECT_DIR$/ansible/roles/meter/templates/conf/conf.j2">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.060240965">
-          <caret line="2" column="17" selection-start-line="0" selection-start-column="0" selection-end-line="8" selection-end-column="13" />
+        <state vertical-scroll-proportion="0.090361446">
+          <caret line="3" column="15" selection-start-line="3" selection-start-column="15" selection-end-line="3" selection-end-column="15" />
           <folding />
         </state>
       </provider>
