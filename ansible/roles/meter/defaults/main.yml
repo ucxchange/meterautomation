@@ -7,6 +7,7 @@ ucx_meter_config_file:  'config.info'
 ucx_meter_user_name:    'ubuntu'
 ucx_meter_group_name:   'ubuntu'
 ucx_org_id:             ''
+ucx_meter_infrastructure_id: 'none'
 # must input org id or authorization for api will not work
 ucx_exchange_location: ''
 # must input 'UCX' or 'ICI' depending on exchange you are using
