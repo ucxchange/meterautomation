@@ -18,6 +18,7 @@ class ucx_meter () {
   $ucx_meter_infrastructure_name = $ucx_meter::params::ucx_meter_infrastructure_name
   $ucx_meter_source_location  = $ucx_meter::params::ucx_meter_source_location
   $ucx_org_id             = $ucx_meter::params::ucx_org_id
+  $ucx_exchange_location   = $ucx_meter::params::ucx_exchange_location
 
   case $service {
     true    : { $ensure_service = 'running' }
